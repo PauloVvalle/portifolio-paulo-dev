@@ -2,45 +2,11 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
-import { Content } from "next/font/google";
-
-const Tab_Data = [
-  {
-    title: "habilidades",
-    id: "habilidades",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Javascript</li>
-        <li>React</li>
-      </ul>
-    )
-  },
-  {
-    title: "formacoes",
-    id: "formacoes",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Desenvolvedor Fullstack - Infnet</li>
-        <li>Analise e desenvolvimento de sistemas(cursando)</li>
-      </ul>
-    )
-  },
-  {
-    title: "experiencia",
-    id: "experiencia",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>...</li>
-      </ul>
-    )
-  },
-]
+import Tab_Data from "../data/TabData"; // Importe o Tab_Data
 
 const AboutSection = () => {
   const [tab, setTab] = useState("habilidades");
-  const [ isPending, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -60,10 +26,9 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">Sobre mim</h2>
           <p className="text-base lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, cum!
-            Similique officia voluptatum, molestiae possimus vero odit quam
-            doloribus ducimus maiores tempora labore velit aut reprehenderit
-            natus recusandae deleniti nam.
+            Apaixonado por programação e jogos, estou cursando Análise e
+            Desenvolvimento de Sistemas. Meu objetivo é ser um desenvolvedor de
+            mobile, web e jogos.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
@@ -88,7 +53,9 @@ const AboutSection = () => {
               Experiencia{" "}
             </TabButton>
           </div>
-          <div className="mt-8">{Tab_Data.find((item) => item.id === tab).content}</div>
+          <div className="mt-8">
+            {Tab_Data.find((item) => item.id === tab).content}
+          </div>
         </div>
       </div>
     </section>
