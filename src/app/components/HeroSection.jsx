@@ -16,18 +16,14 @@ const HeroSection = () => {
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-800">
-              Dev | {""}
+              olá, eu sou {""}
             </span>
             <br></br>
             <TypeAnimation
               sequence={[
                 "Paulo",
                 1000,
-                "Fullstacks junior",
-                1000,
-                "Mobile Dev",
-                1000,
-                "Automação com python",
+                "dev Fullstacks",
                 1000,
               ]}
               wrapper="span"
@@ -36,10 +32,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lf:text-xl">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
-            autem consequatur impedit sint saepe? Alias excepturi nostrum
-            repellendus aliquam praesentium nobis beatae voluptatibus sit. Earum
-            cum error molestias ab exercitationem?
+            Desenvolvedor Fullstack Junior, apaixonado por tecnologia e jogos.
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-200 via-blue-500 to-secondary-950 hover:bg-slate-800 text-white">
