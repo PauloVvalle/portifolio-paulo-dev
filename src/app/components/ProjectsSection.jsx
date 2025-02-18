@@ -7,17 +7,17 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "Projeto 1",
-    description: "Descrição do projeto 1",
+    title: "PetShop",
+    description: "em construção",
     image: "/images/projetos/exemplo-1.jpg",
     name: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/PauloVvalle/petshop",
+    previewUrl: "https://github.com/PauloVvalle/petshop",
   },
   {
     id: 2,
-    title: "Projeto 2",
-    description: "Descrição do projeto 2",
+    title: "Msg automática whatsapp",
+    description: "em construção",
     image: "/images/projetos/exemplo-2.jpg",
     name: ["All", "Mobile"],
     gitUrl: "/",

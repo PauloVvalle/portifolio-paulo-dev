@@ -83,7 +83,7 @@ const Tab_Data = [
     id: "experiencia",
     content: (
       <ul className="list-disc pl-2">
-        <li>...</li>
+        <li>1 ano</li>
       </ul>
     ),
   },

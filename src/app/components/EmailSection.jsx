@@ -1,13 +1,40 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const EmailSection = () => {
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, subject, message }),
+    });
+
+    if (res.ok) {
+      setIsSuccess(true);
+      setStatusMessage('Email enviado com sucesso!');
+      setEmail('');
+      setSubject('');
+      setMessage('');
+    } else {
+      setIsSuccess(false);
+      setStatusMessage('Erro ao enviar email.');
+    }
+  };
+
   return (
     <section className="grid md:grid-cols-2 my-12 md:my-12 pt-24 gap-4 relative">
-        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2">
-
-        </div>
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       <div className="z-10">
         <h5 className="text-xl font-bold text-white my-2">Meu contato</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
@@ -35,51 +62,48 @@ const EmailSection = () => {
         </div>
       </div>
       <div>
-        <form className="flex flex-col">
+        <form className="flex flex-col" onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="text-white block mb-2 text-sm font-medium"
-            >
-              Email
+            <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">
+              Seu Email para contato:
             </label>
             <input
               type="email"
               id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
               placeholder="paulovvalledev@gmail.com"
             />
           </div>
           <div className="mb-6">
-            <label
-              htmlFor="subject"
-              className="text-white block mb-2 text-sm font-medium"
-            >
-              Assunto
+            <label htmlFor="subject" className="text-white block mb-2 text-sm font-medium">
+              Assunto:
             </label>
             <input
               type="text"
               id="subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               required
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
               placeholder="assunto"
             />
           </div>
           <div className="mb-6">
-            <label 
-            htmlFor="message"
-            className="text-white block mb-2 text-sm font-medium"
-            >
-              Mensagem
+            <label htmlFor="message" className="text-white block mb-2 text-sm font-medium">
+              Mensagem:
             </label>
             <textarea
-                name="message"
-                id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Deixe sua mensagem aqui.."
-            >
-            </textarea>
+              name="message"
+              id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              placeholder="Deixe sua mensagem aqui.."
+              required
+            ></textarea>
           </div>
           <button
             type="submit"
@@ -87,6 +111,11 @@ const EmailSection = () => {
           >
             enviar
           </button>
+          {statusMessage && (
+            <p className={`mt-4 text-sm ${isSuccess ? 'text-green-500' : 'text-red-500'}`}>
+              {statusMessage}
+            </p>
+          )}
         </form>
       </div>
     </section>
