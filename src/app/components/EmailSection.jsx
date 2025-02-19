@@ -42,7 +42,7 @@ const EmailSection = () => {
           queira enviar dicas, farei o meu melhor para responder!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="https://github.com/PauloVvalle">
+          <Link className="hover-scale" href="https://github.com/PauloVvalle">
             <Image
               src="/images/github.png"
               alt="Github"
@@ -50,7 +50,7 @@ const EmailSection = () => {
               height={30}
             />
           </Link>
-          <Link href="https://www.linkedin.com/in/paulo-roberto-vasques-valle-a37600274/">
+          <Link className="hover-scale" href="https://www.linkedin.com/in/paulo-roberto-vasques-valle-a37600274/">
             <Image
               src="/images/linkedin.png"
               alt="Linkedin"

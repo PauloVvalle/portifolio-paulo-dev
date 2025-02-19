@@ -8,7 +8,7 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <section className="lg:py-16">
-      <div className="md:grid md:drig-cols-1 lg:grid-cols-12">
+      <div className="grid drig-cols-1 lg:grid-cols-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -35,19 +35,15 @@ const HeroSection = () => {
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lf:text-xl">
             Desenvolvedor Fullstack Junior, apaixonado por tecnologia e jogos.
           </p>
-          <div className="grid grid-cols-1 sm:block gap-4">
-            <Link href="#contact">
-              <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-200 via-blue-500 to-secondary-950 hover:bg-slate-800 text-white">
-                Me contrate
-              </button>
-            </Link>
-            <Link 
-              className="px-6 py-3 w-full sm:w-fit rounded-full bg-[#121212] border border-primary-700 hover:bg-slate-800 text-white" 
-              href="https://drive.google.com/uc?export=download&id=1BWzdcIAWykva0mlKuW9QQmpKtm7J6G8L" 
-              download="Curriculo-Paulo.pdf" 
-            >
-                Download CV
-            </Link>
+          <div>
+            <button href={"#contact"} className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-200 via-blue-500 to-secondary-950 hover:bg-slate-800 text-white">
+              Me contrate
+            </button>
+            <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-200 via-blue-500 to-secondary-950 hover:bg-slate-800 text-white mt-3">
+              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+                Download Curriculo
+              </span>
+            </button>
           </div>
         </motion.div>
         <motion.div
