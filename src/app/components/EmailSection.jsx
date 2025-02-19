@@ -60,7 +60,7 @@ const EmailSection = () => {
           </Link>
         </div>
       </div>
-      <div className="z-10">
+      <div>
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <div className="mb-6">
             <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">
