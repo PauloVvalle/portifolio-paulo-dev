@@ -34,7 +34,7 @@ const EmailSection = () => {
 
   return (
     <section className="grid md:grid-cols-2 my-12 md:my-12 pt-24 gap-4 relative">
-      <div className="z-10">
+      <div>
         <h5 className="text-xl font-bold text-white my-2">Meu contato</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           Estou atualmente em busca de novas oportunidades, minha caixa de
