@@ -1,4 +1,3 @@
-// TabData.js
 const Tab_Data = [
   {
     title: "habilidades",
