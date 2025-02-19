@@ -10,7 +10,7 @@ const achievementsList = [
   {
     id: 1,
     metric: "Clientes",
-    value: "~10",
+    value: "~0",
   },
   {
     id: 2,
