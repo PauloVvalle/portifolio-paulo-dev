@@ -33,7 +33,7 @@ const Carousel = ({ isOpen, onClose, images }) => {
     if (!carouselRef.current || !carouselRef.current.isDown) return;
     event.preventDefault();
     const x = event.pageX || event.touches[0].pageX - carouselRef.current.offsetLeft;
-    const walk = (x - carouselRef.current.startX) * 1; // ajuste a velocidade do arrasto conforme necessário
+    const walk = (x - carouselRef.current.startX) * 1;
     carouselRef.current.scrollLeft = carouselRef.current.scrollLeft - walk;
   };
 
