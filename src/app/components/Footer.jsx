@@ -7,8 +7,7 @@ const Footer = () => {
         <div className='p-12  flex justify-between'>
             <Image
               src="/images/logo-foot.png"
-              alt="Dev"
-              className=""
+              alt="Logo"
               width={50}
               height={50}
             />

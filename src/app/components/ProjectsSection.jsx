@@ -4,11 +4,15 @@ import ProjectsCard from "./ProjectsCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 import projectsData from "../data/ProjcData";
+import Carousel from "./Carousel";
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [previewImages, setPreviewImages] = useState([]);
 
   const handleTagChange = (newTag) => {
     setTag(newTag);
@@ -19,9 +23,19 @@ const ProjectsSection = () => {
     animate: { y: 0, opacity: 1 },
   };
 
-  const filteredProjects = projectsData.filter((project) => 
+  const filteredProjects = projectsData.filter((project) =>
     project.name.includes(tag)
   );
+
+  const handlePreviewClick = (images) => {
+    setPreviewImages(images);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setPreviewImages([]);
+  };
 
   return (
     <section>
@@ -29,18 +43,24 @@ const ProjectsSection = () => {
         Meus Projetos
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag onClick={handleTagChange} 
-        name="All" 
-        isSelected={tag === "all"} />
-        <ProjectTag onClick={handleTagChange} 
-        name="Web" 
-        isSelected={tag === "Web"} />
-        <ProjectTag onClick={handleTagChange} 
-        name="Mobile" 
-        isSelected={tag === "Mobile"} />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="All"
+          isSelected={tag === "all"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Web"
+          isSelected={tag === "Web"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Mobile"
+          isSelected={tag === "Mobile"}
+        />
       </div>
       <div className="relative">
-        <ul 
+        <ul
           ref={ref}
           className="flex md:grid overflow-x-scroll snap-x snap-mandatory md:overflow-visible md:grid-cols-3 gap-8 md:gap-12"
         >
@@ -59,12 +79,17 @@ const ProjectsSection = () => {
                 description={project.description}
                 imgUrl={project.image}
                 gitUrl={project.gitUrl}
-                previewUrl={project.previewUrl}
-                showOptions={true} // Adicione esta prop para garantir que as opções sejam sempre exibidas
+                previewImages={project.previewImages}
+                onPreviewClick={handlePreviewClick}
               />
             </motion.li>
           ))}
         </ul>
+        <Carousel
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          images={previewImages}
+        />
       </div>
     </section>
   );

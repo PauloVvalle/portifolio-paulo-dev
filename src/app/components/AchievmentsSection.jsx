@@ -5,7 +5,7 @@ const achievementsList = [
   {
     id: 0,
     metric: "Projetos",
-    value: "3+",
+    value: "2+",
   },
   {
     id: 1,

@@ -35,14 +35,8 @@ const NavBar = () => {
           href={"#home"}
           className="text-5xl md:text-5xl text-white font-semibold"
         >
-        
-            <Image
-              src="/images/logo-2.png"
-              alt="Dev"
-              className=""
-              width={50}
-              height={50}
-            />
+          Paulo
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-800"> Dev</span>
         </Link>
         <div className="mobile-menu block md:hidden">
           {navbarOpen ? (
