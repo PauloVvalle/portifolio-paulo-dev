@@ -62,12 +62,6 @@ const Carousel = ({ isOpen, onClose, images }) => {
         onTouchMove={handleMouseMove}
       >
         <button
-          className="absolute top-2 right-2 text-red-600"
-          onClick={onClose}
-        >
-          X
-        </button>
-        <button
           className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white text-2xl p-2 bg-black bg-opacity-50"
           onClick={goToPrev}
         >
