@@ -26,8 +26,7 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">Sobre mim</h2>
           <p className="text-base lg:text-lg">
-            Apaixonado por programação e jogos, estou cursando Análise e
-            Desenvolvimento de Sistemas. Meu objetivo é ser um desenvolvedor de
+            Apaixonado por programação e jogos, estou Ciências da Computação. Meu objetivo é ser um desenvolvedor de
             mobile, web e jogos.
           </p>
           <div className="flex flex-row justify-start mt-8">
